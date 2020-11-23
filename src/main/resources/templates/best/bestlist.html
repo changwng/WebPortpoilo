@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/best/list.css">
+</head>
+
+<!--/////////////////////////////// BEST 주간판매량 ///////////////////////////////-->
+
+<body>
+
+		<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+
+	<main>
+		<h1>best</h1>
+		<div>
+		<section id="cs-top">
+			<h1>best이미지</h1>
+			<img alt="베스트상품 이미지" src="/images/category_main_best.jpg">
+		
+			<div class="page-nav">
+					<ul>
+						<li><a href="/">Home &gt;</a><a href="/best/bestlist">BEST &gt;</a> 주간판매량순</li>
+					</ul>
+			</div>
+		</section>
+		
+
+		<div class="view-width">
+				<section id="cs-middle">
+					<h1>best표시</h1>
+					<img alt="BEST" src="/images/best.jpg" >
+					
+					<div class="product-align">
+						<form method="get" name="best_type">
+						<select id="product-align" onchange="window.open(value,'_self');">
+			                <option value="/best/bestlist" selected="selected">주간 판매량순</option>
+			                <option value="/best/bestmonth">월간 판매량순</option>
+			                <option value="/best/bestaccurue">누적 판매량순</option>
+						</select>
+						</form>
+					</div>
+				</section>
+				
+
+				<div>
+				<section id="best-product" class="view-width">
+					<h1>베스트상품_주간 판매량 영역</h1>
+					<div class="product-wrap">
+						<div class="best-list-posi">
+						<div class="list-view">
+							<div class="product-list-wrap-nomove">
+								<ul class="bestProduct row-start-align">
+
+									<li class="goods">
+										<img id="bestrank" alt="베스트1등" src="/images/middle_best/best01.png">
+										<a class="goods-img">
+											<img alt="베스트상품_밀스라이트" src="/images/middle_new/new3.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">[순차출고] 밀스 라이트 3.0 벨벳카카오 *7팩</span>
+											<p class="price">
+												<span>17,500원</span>15,900원
+											</p>
+										</div>
+									</li>
+								
+									<li class="goods">
+										<img id="bestrank" alt="베스트2등" src="/images/middle_best/best02.png">
+										<a class="goods-img">
+											<img alt="베스트상품_곤약젤리청포도" src="/images/middle_best/best_2.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">슈가로로 곤약젤리 청포도 *10팩</span>
+											<p class="price">
+												<span>30,000원</span>13,900원
+											</p>	
+										</div>
+									</li>
+								
+									<li class="goods">
+										<img id="bestrank" alt="베스트3등" src="/images/middle_best/best03.png">
+										<a class="goods-img">
+											<img alt="베스트상품_스파클링사과" src="/images/middle_best/best_3.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">슈가로로 스파클링 사과 *6개입</span>
+											<p class="price">
+												<span>18,000원</span>7,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods">
+										<img id="bestrank" alt="베스트4등" src="/images/middle_best/best04.png">
+										<a class="goods-img">
+											<img alt="베스트상품_밀스라이트" src="/images/middle_new/new4.jpg">
+										</a>	
+										<div class="column-align">
+											<span class="name">[순차출고] 밀스 라이트 3.0 스윗그레인 *7팩</span>
+											<p class="price">
+												<span>17,500원</span>15,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods" style="right: 1336px; position: relative; bottom: -430px; ">
+										<img id="bestrank" alt="베스트5등" src="/images/middle_best/best05.png">
+										<a class="goods-img">
+											<img alt="베스트상품_소이밀크" src="/images/middle_best/best_5.jpg">
+										</a>	
+										<div class="column-align">
+											<span class="name">[2+1] 인테이크 소이밀크 두유 16개입</span>
+											<p class="price">
+												<span>17,900원</span>13,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods" style="right: 1336px; position: relative; bottom: -430px; ">
+										<img id="bestrank" alt="베스트6등" src="/images/middle_best/best06.png">
+										<a class="goods-img">
+											<img alt="베스트상품_프레시모닝" src="/images/middle_best/best_6.jpg">
+										</a>	
+										<div class="column-align">
+											<span class="name">[3+1] 밀스 프레시모닝 1.0 보틀형 *5개</span>
+											<p class="price">
+												<span>11,000원</span>8,000원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods" style="right: 1336px; position: relative; bottom: -430px; ">
+										<img id="bestrank" alt="베스트7등" src="/images/middle_best/best07.png">
+										<a class="goods-img">
+											<img alt="베스트상품_바이탈워터" src="/images/middle_best/best_7.jpg">
+										</a>	
+										<div class="column-align">
+											<span class="name">[2+1] 바이탈워터 드링크 *10팩</span>
+											<p class="price">
+												<span>35,000원</span>13,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods" style="right: 1336px; position: relative; bottom: -430px; ">
+										<img id="bestrank" alt="베스트8등" src="/images/middle_best/best08.png">
+										<a class="goods-img">
+											<img alt="베스트상품_밀스방탄" src="/images/middle_best/best_8.jpg">
+										</a>	
+										<div class="column-align">
+											<span class="name">[견과증정] 밀스 방탄 쉐이크 *1개입</span>
+											<p class="price">
+												<span>35,000원</span>28,000원
+											</p>
+										</div>
+									</li>
+									
+									
+									
+									
+									
+									</ul>
+									
+									
+								</div>
+							</div>
+						</div>	
+					</div>
+				</section>
+			</div>
+				
+
+			</div>
+		</div>
+	</main>
+	
+	<!-- up버튼 누르면 올라가기 -->
+		<script type="text/javascript">
+			$(function(){
+			    var speed = 500; // 스크롤속도
+			    $(".up").css("cursor","pointer").click(function()
+			    {
+			        $('body, html').animate({scrollTop:0}, speed);
+			    });
+			});
+			</script>
+
+
+		<div class="up">
+			<img alt="up" src="/images/chevron-circle-up-solid.svg">
+		</div>
+		
+	
+	
+	
+	
+	<!-- footer을 포함시키는 영역 -->
+	<div th:insert="~{commons/footer :: footer}">
+	</div>
+
+</body>
+</html>

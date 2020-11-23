@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/cs/detail.css">
+</head>
+
+<body>
+
+		<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+		
+	<main>
+		<h1>mybatis로 처리한 게시판 상세정보</h1>
+		<div>
+			<section id="cs-top">
+			
+			<img alt="고객센터이미지" src="/images/category_main_customer.jpg">
+		
+			<div class="page-nav">
+					<ul>
+						<li><a href="/">Home &gt;</a>고객센터 &gt; FAQ</li>
+					</ul>
+			</div>
+		</section>
+		
+		
+			<section id="board" class="view-width">
+				<h1>게시글 내용</h1>
+				<!-- 상세페이지 정보 -->
+				<div class="wrap" id="detail">
+					<ul class="board-detail">
+						<li class="subject">[[${detail.subject}]]</li>
+						<li class="info flex">
+							<span class="pipe writer">[[${detail.writer}]]</span>
+							<span class="pipe">[[${#temporals.format(detail.reg_date, 'yyyy. MM. dd. HH:mm:ss')}]]</span>
+							<span>조회 [[${detail.count}]]</span>
+						</li>
+						<li class="content">[[${detail.content}]]</li>
+					</ul>
+					<div class="flex-between row-end-align">
+						<a href="/cs/csfaq"><button type="button" class="btn-style" style="cursor: pointer;">글목록</button></a>
+						<div>
+							<button id="btn-edit" type="button" class="btn-style" style="cursor: pointer;">수정</button>
+							<a th:href="|/cs/csfaq/delete/${detail.no}|"><button id="btn-delete" type="button" class="btn-style" style="cursor: pointer;">삭제</button></a>
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(function(){
+						$("#edit").hide();
+						$("#btn-edit").click(function(){
+							$("#detail").hide();
+							$("#edit").show();
+						});
+					});
+				</script>
+				<!-- 수정 페이지 정보 -->
+				<form class="wrap" id="edit" action="/cs/csfaqedit" method="post">
+					<input type="hidden" name="no" th:value="${detail.no}">
+					<ul class="board-detail">
+						<li class="subject">
+							<input type="text" name="subject" th:value="${detail.subject}">
+						</li>
+						<li class="info flex">
+							<span class="pipe writer">[[${detail.writer}]]</span>
+							<span class="pipe">[[${#temporals.format(detail.reg_date, 'yyyy. MM. dd. HH:mm:ss')}]]</span>
+							<span>조회 [[${detail.count}]]</span>
+						</li>
+						<li class="content">
+							<textarea rows="10" cols="130" name="content">[[${detail.content}]]</textarea>
+						</li>
+					</ul>
+					<div class="flex-between">
+						<button type="button" class="btn-style" onclick="history.go(-1)" style="cursor: pointer;">글목록</button>
+						<div>
+							<button type="submit" class="btn-style" style="cursor: pointer;">수정완료</button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<th:block th:insert="/commons/footer::footer"></th:block>
+</body>
+</html>

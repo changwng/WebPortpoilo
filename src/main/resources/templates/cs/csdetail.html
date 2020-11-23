@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/cs/detail.css">
+</head>
+
+<body>
+
+		<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+		
+	<main>
+		<h1>jpa로 처리한 게시판 상세정보</h1>
+		<div>
+			<section id="cs-top">
+			
+			<img alt="고객센터이미지" src="/images/category_main_customer.jpg">
+		
+			<div class="page-nav">
+					<ul>
+						<li><a href="/">Home &gt;</a>고객센터 &gt; 공지사항</li>
+					</ul>
+			</div>
+			</section>
+		
+		
+			<section id="board" class="view-width">
+				<h1>게시글 내용</h1>
+				<!--/////////////////////// 상세페이지 정보 ///////////////////////-->
+				<div class="wrap" id="detail">
+					<ul class="board-detail">
+						<li class="subject">[[${dto.subject}]]</li>
+						<li class="info flex">
+							<span class="pipe writer">[[${dto.writer}]]</span>
+							<span class="pipe">[[${#temporals.format(dto.reg_date, 'yyyy. MM. dd. HH:mm:ss')}]]</span>
+							<span>조회 [[${dto.count}]]</span>
+						</li>
+						<li class="content">[[${dto.content}]]</li>
+					</ul>
+					<div class="flex-between row-end-align">
+						<!-- <a th:href="|/cs/cscenter/${page}|">  페이지 유지 -->
+						<a th:href="|/cs/cscenter/${page}|"><button type="button" class="btn-style" style="cursor: pointer;">글목록</button></a>
+						<div>
+							<button id="btn-edit" type="button" class="btn-style" style="cursor: pointer;">수정</button>
+							<a th:href="|/cs/delete/${dto.no}|"><button id="btn-delete" type="button" class="btn-style" style="cursor: pointer;">삭제</button></a>
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(function(){
+						$("#edit").hide();
+						$("#btn-edit").click(function(){
+							$("#detail").hide();
+							$("#edit").show();
+						});
+					});
+				</script>
+				<!-- 수정 페이지 정보 -->
+				<form class="wrap" id="edit" action="/cs/csedit" method="post">
+					<input type="hidden" name="no" th:value="${dto.no}" id="b_no">
+					<ul class="board-detail">
+						<li class="subject">
+							<input type="text" name="subject" th:value="${dto.subject}">
+						</li>
+						<li class="info flex">
+							<span class="pipe writer">[[${dto.writer}]]</span>
+							<span class="pipe">[[${#temporals.format(dto.reg_date, 'yyyy. MM. dd. HH:mm:ss')}]]</span>
+							<span>조회 [[${dto.count}]]</span>
+						</li>
+						<li class="content">
+							<textarea rows="10" cols="130" name="content">[[${dto.content}]]</textarea>
+						</li>
+					</ul>
+					<div class="flex-between">
+						<button type="button" class="btn-style"><a href="/cs/cscenter/1" style="color:#fff;">글목록</a></button>
+						<div>
+							<button type="submit" class="btn-style" style="cursor: pointer;">수정완료</button>
+						</div>
+					</div>
+				</form>
+				</section>
+				
+				
+				
+				
+				
+				<!-- /////////////////////// 게시판 댓글기능구현(댓글쓰기,목록,삭제-commentlist,수정)  ///////////////////////-->
+				<!-- /댓글등록& 목록 ajax -->
+					<script type="text/javascript">
+						$(function(){
+							getCommentList(); //사이트 로딩 시 댓글 나오기(댓글리스트)
+							$("#btn-comment").click(comment); //클릭 이벤트 등록(댓글등록)
+							
+						});
+						
+						
+								//댓글 목록
+								function getCommentList(){
+									var b_no = $("#b_no").val();
+									
+									$.ajax({
+										url:"/comment/comment_list",
+										type: "post",
+										data: {"b_no":b_no}, //b_no 게시글번호
+										success: function(result){
+											$("#comment .view").html(result);
+										}
+										
+									});
+									
+								}
+					
+						
+						
+								//댓글 등록
+								function comment(){
+									var user = $("#user").val();
+									var c_content = $("#c_content").val();
+									var b_no = $("#b_no").val();
+									
+									//alert(c_content);
+									
+									$.ajax({
+										
+										url: "/comment/comment_reg", 
+										type: "post",
+										data: {"writer":user, "content":c_content, "b_no":b_no},
+										success: function(result){
+											getCommentList();
+											alert(result);
+											$("#c_content").val(""); //셋팅_댓글 등록 한 후 다시 빈칸("")으로
+										}
+										
+										});
+									}
+									
+								
+								
+									/*댓글등록_keyevent 활용하여 등록방식(엔터키가 누르면 글쓰기 등록처리)
+									function keyCheck(event){
+										var x = event.charCode || event.keyCode;
+										if(x==13){ //엔터키가 눌러지면 unicode 사용해서 글쓰기
+										
+											comment(); //댓글등록처리
+										}	
+									}*/
+								
+		
+						</script>
+				<!-- 댓글관련 ajax/ -->
+				
+
+
+
+
+
+				<!-- /////////////////////// 게시판 댓글기능구현  ///////////////////////-->
+				<section id="comment" class="view-width">
+				
+					<!-- /댓글 쓰기 (로그인 여부에 따라)-->
+					<div class="comment">
+						<th:block th:if="${session.logInfo != null}">
+									<input name="writer" type="hidden" id="user" th:value="${session.logInfo.email}">
+									<textarea rows="4" cols="130" name="content" id="c_content"
+									placeholder="댓글을 입력하세요" onkeypress="keyCheck(event)"></textarea>
+									<button type="button" id="btn-comment">등록</button>
+						</th:block>
+						
+						<th:block th:if="${session.logInfo == null}">
+							<div class="flex-center">
+								댓글을 작성하려면 &nbsp;<a href="/member/login">로그인</a>을 해주세요
+							</div>
+						</th:block>
+					</div>
+					<!-- 댓글 쓰기/ -->
+					
+					
+
+
+					<!-- /댓글목록(목록뿌리기),댓글삭제,댓글수정_cscommentlist.html에 참고-->
+							<div class="view">
+								
+							</div>
+					<!-- 댓글목록(목록뿌리기),댓글삭제,댓글수정/-->
+					
+
+
+					
+				
+					
+					
+					
+				</section>	
+					
+				
+				
+				
+			
+				
+				
+
+		</div>
+	</main>
+	<th:block th:insert="/commons/footer::footer"></th:block>
+</body>
+</html>

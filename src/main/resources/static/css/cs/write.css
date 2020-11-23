@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@import url("../common.css");
+
+/* /////////////////////////////////////////// */
+/* //////board/write.css/////////////////////////// */
+/* /////////////////////////////////////////// */
+#cs-top img{
+	width: 100%;
+    min-width: 1300px;
+}
+
+
+
+
+#cs-top div.page-nav>ul{
+	border-bottom: 1px solid #d7d7d7;
+	width: 1300px;
+    margin: 27px auto 27px;
+    padding-bottom: 15px;  
+}
+
+
+#cs-top div.page-nav>ul>li>a{
+	padding-right: 8px;
+	color:#888888;
+}
+
+#board{
+	margin-bottom: 40px;
+}
+
+#board .wrap .write-form>*{
+	display: block;
+}
+
+#board input{
+	width: 360px;
+}
+
+#board textarea{
+	width: 100%;
+}
+
+#board input, #board textarea{
+	margin-bottom: 20px;
+	padding: 5px;
+}
+
+#board button{
+	float:right;
+	
+	background-color: orange;
+	padding: 0.5em 2em;
+	border: none;
+	border-radius: 5%;
+	color: #fff;
+	font-weight: 700;
+	margin-bottom:10px;
+	
+	cursor: pointer;
+}
+

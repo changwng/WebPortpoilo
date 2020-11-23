@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+@import url("../common.css");
+
+
+#join div.page-nav>ul{
+	border-bottom: 1px solid #d7d7d7;
+	width: 1300px;
+    margin: 27px auto 27px;
+    padding-bottom: 15px;  
+}
+
+
+#join div.page-nav>ul>li>a{
+	padding-right: 15px;
+	color:#888888;
+}
+
+#join>div.form-head>form.join-form{
+	border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+
+
+
+#join>div.form-head p.login-tit{
+	text-align: center;
+	font-size: 35px;
+	padding-bottom: 10px;
+	font-weight: 700;
+}
+
+#join>div.form-head p.essential{
+	font-size: 15px;
+	color:orange;
+	display: flex;
+    padding-bottom: 9px;
+    justify-content: flex-end;
+}
+
+
+
+
+
+#join>div.form-head>form>ul{
+	display: table;
+	padding: 30px 0;
+	margin-left: auto;
+    margin-right: auto;
+	
+}
+
+
+#join>div.form-head>form>ul>li{
+	padding: 20px 40px;
+}
+
+
+#join>div.form-head>form>ul>li>ul>li:first-child{
+	padding: 10px 40px 10px 10px;
+    width: 165px;
+}
+
+
+#join>div.form-head>form>ul>li{
+	display: grid;
+}
+
+
+
+#join>div.form-head>form>ul>li>ul>li>input{
+	padding: 10px;
+	width: 300px;
+}
+
+
+#join>div.form-head>form>ul li #btn-email,
+#join>div.form-head>form>ul li div #confirm-email{
+	background-color: orange;
+	border:none;
+	padding: 10px;
+	margin-left: 10px;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+
+
+#join>div.form-head>form>ul>li.join-submit>input{
+	background-color: #fff;
+    font-size: 15px;
+    color: orange;
+    padding: 15px 30px;
+    border: 1px solid orange;
+    font-weight: 600;
+}
+
+#join>div.form-head>form>ul>li.join-submit>input:hover{
+	background-color: orange;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.icon{
+	color:orange;
+}
+
+
+
+
+
+
+
+

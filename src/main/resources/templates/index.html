@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/index.css">  <!-- th:href=@{"/css/index.css"} -->
+</head>
+	
+	<body>
+		<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">  <!-- 차이점: header.html에서 include는 안쪽만 포함_insert는 모두 포함(header 태그까지,모두 포함시키기)-->
+		</div>
+	
+		
+			<section id="visual">
+				<h1>비주얼영역</h1>
+				<div id="visual-area">
+					<ul>
+						<li class="bg1" value="1"></li>
+						<li class="bg2" value="2"></li>
+						<li class="bg3" value="3"></li>
+						<li class="bg4" value="4"></li>
+						<li class="bg5" value="5"></li>
+					</ul>
+				</div>
+				
+
+				<div id="btn-wrap">
+					<div class="btn view-width">
+						<a href="#" id="prev"></a>
+						<a href="#" id="next"></a>
+					</div>
+				</div>
+			
+
+				<div id="list-wrap">
+					<div class="list view-width">
+						<a href="#" onclick="listClick('.bg1')"></a>
+						<a href="#" onclick="listClick('.bg2')"></a>
+						<a href="#" onclick="listClick('.bg3')"></a>
+						<a href="#" onclick="listClick('.bg4')"></a>
+						<a href="#" onclick="listClick('.bg5')"></a>
+					</div>
+				</div>	
+			</section>
+		
+		
+			<main>
+				<h1>메인영역</h1>
+				
+				<!--//////////////////// 신상품영역 //////////////////// -->
+			<div>
+				<section id="product" class="view-width">
+					<h1>신상품영역</h1>
+					<div class="product-wrap">
+						<div class="newProduct-tit"><img alt="NEW ARRIVAL" src="/images/intake_new_title.png"></div>
+						<div class="list-posi">
+						<div class="list-view">
+							<div class="product-list-wrap">
+								<ul class="row-align newProduct">
+									
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_곤약젤리자몽" src="/images/middle_new/new1.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">슈가로로 곤약젤리 자몽 *10팩</span>
+											<p class="price">
+												<span>30,000원</span>13,900원
+											</p>	
+										</div>
+									</li>
+								
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_밀스바이트" src="/images/middle_new/new2.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">[BEST] 밀스바이트 스윗그레인 *7개입</span>
+											<p class="price">
+												<span>21,000원</span>15,000원
+											</p>	
+										</div>
+									</li>
+								
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_밀스라이트" src="/images/middle_new/new3.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">[순차출고] 밀스 라이트 3.0 벨벳카카오 *7팩</span>
+											<p class="price">
+												<span>17,500원</span>15,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_밀스라이트" src="/images/middle_new/new4.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">[순차출고] 밀스 라이트 3.0 스윗그레인 *7팩</span>
+											<p class="price">
+												<span>17,500원</span>15,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_이노센트베지볼" src="/images/middle_new/new5.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">이노센트베지볼*12팩</span>
+											<p class="price">
+												<span>54,000원</span>34,800원
+											</p>	
+										</div>
+									</li>
+								
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_곤약젤리석류" src="/images/middle_new/new6.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">슈가로로 곤약젤리 석류 *10팩</span>
+											<p class="price">
+												<span>30,000원</span>13,900원
+											</p>	
+										</div>
+									</li>
+								
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_밀스소이" src="/images/middle_new/new7.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">밀스3.1 소이 대용량*1통</span>
+											<p class="price">
+												<span>20,900원</span>20,000원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods">
+										<a class="goods-img">
+											<img alt="신상품_포뮬러 멀티비타민" src="/images/middle_new/new8.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">포뮬러 멀티 비타민 미네랄 포우먼</span>
+											<p class="price">
+												<span>16,000원</span>14,000원
+											</p>
+										</div>
+									</li>
+									</ul>
+								</div>
+							</div>
+							
+							<script type="text/javascript">
+							
+									$(".more-right").show();
+									$(".more-left").hide();
+							
+								function moreNext(){
+									$(".product-list-wrap").css("margin-left",-1300);
+									$(".product-list-wrap-nomove").stop();
+									$(".more-right").hide();
+									$(".more-left").show();
+								}
+								
+								function morePrev(){
+									$(".product-list-wrap").css("margin-left",0);
+									$(".more-right").show();
+									$(".more-left").hide();
+								}
+							
+							
+							
+							
+							
+							</script>
+							
+							
+							<!-- 상품넘기기 버튼 -->
+							<div class="more-btn">
+								<button class="more-left" onclick="morePrev()">
+									<img alt="이전상품넘기기" src="/images/icons8-chevron-left-96.png">
+								</button>
+							
+								<button class="more-right" onclick="moreNext()">
+									<img alt="다음상품넘기기" src="/images/icons8-chevron-right-96.png">
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			
+			<!--//////////////////// 베스트상품영역 //////////////////// -->
+			<div>
+				<section id="best-product" class="view-width">
+					<h1>베스트상품영역</h1>
+					<div class="product-wrap">
+						<div class="bestProduct-tit"><img alt="INTAKE BEST" src="/images/intake_best_title.png"></div>
+						<div class="best-list-posi">
+						<div class="list-view">
+							<div class="product-list-wrap-nomove">
+								<ul class="row-align bestProduct">
+
+									<li class="goods">
+										<img id="bestrank" alt="베스트1등" src="/images/middle_best/best01.png">
+										<a class="goods-img">
+											<img alt="베스트상품_밀스라이트" src="/images/middle_new/new3.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">[순차출고] 밀스 라이트 3.0 벨벳카카오 *7팩</span>
+											<p class="price">
+												<span>17,500원</span>15,900원
+											</p>
+										</div>
+									</li>
+								
+									<li class="goods">
+										<img id="bestrank" alt="베스트2등" src="/images/middle_best/best02.png">
+										<a class="goods-img">
+											<img alt="베스트상품_곤약젤리청포도" src="/images/middle_best/best_2.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">슈가로로 곤약젤리 청포도 *10팩</span>
+											<p class="price">
+												<span>30,000원</span>13,900원
+											</p>	
+										</div>
+									</li>
+								
+									<li class="goods">
+										<img id="bestrank" alt="베스트3등" src="/images/middle_best/best03.png">
+										<a class="goods-img">
+											<img alt="베스트상품_스파클링사과" src="/images/middle_best/best_3.jpg">
+										</a>
+										<div class="column-align">
+											<span class="name">슈가로로 스파클링 사과 *6개입</span>
+											<p class="price">
+												<span>18,000원</span>7,900원
+											</p>
+										</div>
+									</li>
+									
+									<li class="goods">
+										<img id="bestrank" alt="베스트4등" src="/images/middle_best/best04.png">
+										<a class="goods-img">
+											<img alt="베스트상품_소이밀크" src="/images/middle_new/new4.jpg">
+										</a>	
+										<div class="column-align">
+											<span class="name">[순차출고] 밀스 라이트 3.0 스윗그레인 *7팩</span>
+											<p class="price">
+												<span>17,500원</span>15,900원
+											</p>
+										</div>
+									</li>
+									</ul>
+									
+									<p id="best-product-more"><a href="/best/bestlist">베스트상품 더보기 &gt;</a></p>
+									
+								</div>
+							</div>
+						</div>	
+					</div>
+				</section>
+			</div>
+	
+			
+			
+			
+	
+			
+			<!-- 광고영역_영상 -->
+			<section id="video">
+			<h1>영상광고영역</h1>
+				<div class="intakemovie-tit"><img alt="INTAKE MOVIE" src="/images/intake_movie.png"></div>
+				<div class="video">
+				    <div class="video-container">
+				      <iframe width="100%" height="100%"
+				      src="https://www.youtube.com/embed/K702CDog33Y?controls=0"
+				      frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+				      gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					</div>
+				</div>
+				
+				<div class="video2">
+				    <div class="video-container">
+				      <iframe width="100%" height="100%"
+				      src="https://www.youtube.com/embed/36HH7v2IPI4?controls=0"
+				      frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+				      gyroscope; picture-in-picture" allowfullscreen></iframe> 
+					</div>
+				</div>
+			</section> 
+			
+			
+			<!-- 공지사항 및 고객센터 -->
+			<section id="notice_cscenter" class="view-width">
+				<h1>공지사항 및 고객센터</h1>
+				
+				<div class="notice">
+					<a href="/cs/cscenter/1"><img alt="NOTICE" src="/images/notice_title.png"></a>
+					<!--//////////////////////////// DB내용 들어갈 부분(공지사항) //////////////////////////// -->
+					<ul>
+						<li><a href="/cs/cscenter/1">2020 추석연휴 배송안내</a><span>2020.09.29</span></li>
+						<li><a href="/cs/cscenter/1">2020년 9월 인테이크 전체회원 구매 금액별 사은품</a><span>2020.09.29</span></li>
+						<li><a href="/cs/cscenter/1">8월 배송 안내</a><span>2020.09.29</span></li>
+						<li><a href="/cs/cscenter/1">2020년 8월 인테이크 전체회원 구매 금액별 사은품</a><span>2020.09.29</span></li>
+						<li><a href="/cs/cscenter/1">인테이크 쉐이커 리뉴얼 출시 안내</a><span>2020.09.29</span></li>
+					</ul>
+				</div>
+					
+		
+				<div class="cscenter">
+					<img alt="CS CENTER" src="/images/cscenter_title.png">
+					<p>1644-1567</p>
+					<ul>
+						<li>운영시간<span>09:30 ~ 17:30</span></li>
+						<li>이메일<span><a href="mailto:help@intakefoods.kr">help@intakefoods.kr</a></span></li>
+						<li>점심시간<span>12:00 ~ 13:00</span></li>
+						<li>카카오톡<span><a href="https://pf.kakao.com/_xaNlqM">@intakefoods</a></span></li>	
+					</ul>
+					<span id="off">토,일,공휴일 휴무</span>
+				</div>
+				
+
+			</section>
+	
+			</main>
+		
+		
+		<!-- up버튼 누르면 올라가기 -->
+		<script type="text/javascript">
+			$(function(){
+			    var speed = 500; // 스크롤속도
+			    $(".up").css("cursor","pointer").click(function()
+			    {
+			        $('body, html').animate({scrollTop:0}, speed);
+			    });
+			});
+			</script>
+
+
+		<div class="up">
+			<img alt="up" src="/images/chevron-circle-up-solid.svg">
+		</div>
+		
+		
+		
+		
+		
+
+		<!-- footer을 포함시키는 영역 -->
+		<div th:insert="~{commons/footer :: footer}">
+		</div>
+		
+		
+	
+	</body>
+</html>

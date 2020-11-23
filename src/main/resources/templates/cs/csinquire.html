@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/cs/inquire_write.css">
+</head>
+
+<body>
+
+	<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+		
+	<main>
+		<h1>mybatis를 통해 1:1문의하기</h1>
+		<div>
+		
+			<section id="cs-top">
+				<h1>CScenter이미지</h1>
+				<img alt="고객센터이미지" src="/images/category_main_customer.jpg">
+				<div class="page-nav">
+						<ul>
+							<li><a href="/">Home &gt;</a><a href="/cs/cscenter/1">고객센터 &gt;</a> 1:1문의</li>
+						</ul>
+				</div>
+			</section>
+			
+			
+			
+			
+			<script type="text/javascript">
+				$(function(){
+						$(".inquire").css("color","orange");
+						
+						$(".cscenter").click(function(){
+							$(".cscenter").css("color","orange");
+						});
+						
+						$(".faq").click(function(){
+								$(".faq").css("color","orange");
+						});
+						
+						$(".suggest").click(function(){
+							$(".suggest").css("color","orange");
+					});
+						
+						
+				});
+			
+			</script>
+			
+			
+			
+			<section id="cs-middle" class="view-width">
+					<h1>1:1문의표시_mybatis</h1>
+					<p>1:1문의</p> <!-- mybatis -->
+					<div>
+						<ul class="row-align">
+							<li><a href="/cs/cscenter/1" class="cscenter">공지사항</a></li>
+							<li><a href="/cs/csfaq" class="faq">FAQ</a></li>
+							<li><a href="/cs/csinquire" class="inquire">1:1문의</a></li>
+							<li><a href="/cs/cssuggest" class="suggest">제품 제안 하기</a></li>
+						</ul>
+					</div>					
+			</section>
+	
+			
+			<section id="board">
+				<h1>문의글 내용</h1>
+				
+				<div class="inquire_guide">
+					<p>인테이크와 관련된 문의를 남겨주시면, 확인 후 연락 드리겠습니다.</p>
+				</div>
+				
+				
+				
+				<div class="wrap flex-center">
+					<th:block th:if="${session.logInfo != null}">
+						<form class="write-form" action="/cs/csinquire" method="post" style="border-top: 1px solid #000; padding-top: 20px;">
+								<input name="writer" id="writer"  th:value="${session.logInfo.email}" readonly="readonly" style="border: none;">
+								<input id="phoneNum" name="phoneNum" type="number" placeholder="하이픈(-)없이 핸드폰 번호를 기입해주세요" readonly="readonly">
+								<textarea rows="1" cols="100" name="subject" placeholder="문의 제목 입력하세요"></textarea>
+								<textarea rows="10" cols="130" name="content" placeholder="문의할 내용을 입력하세요"></textarea>
+								<input name="fileName" type="file">
+							<button type="submit">확인</button>
+						</form>
+					</th:block>
+					
+					
+					<th:block th:if="${session.logInfo == null}">
+						<a href="/member/login">로그인 후 이용하세요</a>
+					</th:block>
+					
+				</div>
+			</section>
+		</div>
+	</main>
+	
+		<!-- up버튼 누르면 올라가기 -->
+		<script type="text/javascript">
+			$(function(){
+			    var speed = 500; // 스크롤속도
+			    $(".up").css("cursor","pointer").click(function()
+			    {
+			        $('body, html').animate({scrollTop:0}, speed);
+			    });
+			});
+			</script>
+
+
+		<div class="up">
+			<img alt="up" src="/images/chevron-circle-up-solid.svg">
+		</div>
+		<!-- up버튼 누르면 올라가기 -->
+	
+
+	<th:block th:insert="/commons/footer::footer"></th:block>
+
+</body>
+</html>

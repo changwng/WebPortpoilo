@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/cs/suggest_write.css">
+</head>
+
+<body>
+
+	<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+		
+	<main>
+		<h1>Jpa로 처리한 제품제안하기</h1>
+		<div>
+		
+			<section id="cs-top">
+				<h1>CScenter이미지</h1>
+				<img alt="고객센터이미지" src="/images/category_main_customer.jpg">
+				<div class="page-nav">
+						<ul>
+							<li><a href="/">Home &gt;</a><a href="/cs/cscenter/1">고객센터 &gt;</a> 제품 제안하기</li>
+						</ul>
+				</div>
+			</section>
+			
+			
+			
+			
+			<script type="text/javascript">
+				$(function(){
+						$(".suggest").css("color","orange");
+						
+						$(".cscenter").click(function(){
+							$(".cscenter").css("color","orange");
+						});
+						
+						$(".inquire").click(function(){
+							$(".inquire").css("color","orange");
+						});
+						
+
+						$(".faq").click(function(){
+								$(".faq").css("color","orange");
+						});
+				});
+			
+			</script>
+			
+			
+			
+			<section id="cs-middle" class="view-width">
+					<h1>제품제안하기표시_jpa</h1>
+					<p>제품 제안하기</p> <!-- jpa -->
+					<div>
+						<ul class="row-align">
+							<li><a href="/cs/cscenter/1" class="cscenter">공지사항</a></li>
+							<li><a href="/cs/csfaq" class="faq">FAQ</a></li>
+							<li><a href="/cs/csinquire" class="inquire">1:1문의</a></li>
+							<li><a href="/cs/cssuggest" class="suggest">제품 제안 하기</a></li>
+						</ul>
+					</div>					
+			</section>
+	
+			
+			<section id="board">
+				<h1>게시글 내용</h1>
+				
+				<div class="suggest_guide">
+					<p>고객님이 필요한 제품을 제안 해주세요.</p>
+					<p>저희 인테이크에 아직 존재하지 않지만 고객님이 필요한 제품을 제안해주시면,<br>
+					인테이크 신제품 개발 담당자가 직접 검토하고 고객님의 제안을 '가장 인테이크 다운 방식으로' 제품화할 방법을 고민하겠습니다.
+					</p>
+				
+				</div>
+				
+				
+				
+				<div class="wrap flex-center">
+					<th:block th:if="${session.logInfo != null}">
+						<form class="write-form" action="/cs/cssuggest" method="post">
+								<input name="writer" type="hidden" value="guest">
+								<textarea rows="15" cols="130" name="content" placeholder="제품 제안 내용 입력하세요"></textarea>
+							<button type="submit">확인</button>
+						</form>
+					</th:block>
+					
+					
+					<th:block th:if="${session.logInfo == null}">
+						<a href="/member/login">로그인 후 이용하세요</a>
+					</th:block>
+					
+					
+				</div>
+				
+				
+				
+				
+				
+			</section>
+		</div>
+	</main>
+	
+		<!-- up버튼 누르면 올라가기 -->
+		<script type="text/javascript">
+			$(function(){
+			    var speed = 500; // 스크롤속도
+			    $(".up").css("cursor","pointer").click(function()
+			    {
+			        $('body, html').animate({scrollTop:0}, speed);
+			    });
+			});
+			</script>
+
+
+		<div class="up">
+			<img alt="up" src="/images/chevron-circle-up-solid.svg">
+		</div>
+		<!-- up버튼 누르면 올라가기 -->
+	
+	
+	
+	
+	
+	
+	<th:block th:insert="/commons/footer::footer"></th:block>
+
+</body>
+</html>

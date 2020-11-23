@@ -1,0 +1,266 @@
+@charset "UTF-8";
+
+#user-menu ul li{
+	margin-left: 30px;
+	height: 40px;
+}
+
+#user-menu ul li a{
+	font-size: 12px;
+	color: #7d7d7d;
+	padding: 10px 0;
+	line-height: 40px;
+}
+
+#user-menu ul li a.hover:hover{
+	color:#000;
+	font-weight: 800;
+}
+
+
+/* menu-top */
+
+#menu-top{
+	border-bottom: 1px solid #e1e1e1;
+	border-top: 1px solid #e1e1e1;
+	padding: 15px 0;
+}
+#menu-top>div>ul{
+	line-height: 43px;
+}
+#menu-top>div>ul li{
+	margin-right: 30px;
+}
+
+#menu-top>div>ul li a{
+	padding: 10px 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 800;
+}
+
+#menu-top>div>div.search form input{
+	width: 295px;
+    height: 38px;
+    padding-left: 15px;
+    font-size: 14px;
+    background: #f9f9f9;
+    border: 1px solid #d5d5d5;
+    margin-right: 14px;
+}
+#menu-top>div>div.search form button{
+	background: none;
+	border: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-weight: 800;
+}
+
+
+/*menu-bottom*/
+#menu-bottom{
+	border-bottom: 1px solid #e1e1e1;
+}
+
+#menu-bottom>div.menu-bottom-wrap>ul{
+	height: 54px;
+}
+#menu-bottom>div.menu-bottom-wrap{
+	position: relative;
+}
+
+
+#menu-bottom>div.menu-bottom-wrap:after{
+	content: "";
+	position: absolute;
+	display:block;
+	left:0;
+	top:54px;
+	width: 1300px;
+	border-top: 4px solid #000;
+}
+
+
+/*/////메뉴 버튼에 아래 선 호버시키기/////*/
+#menu-bottom>div.menu-bottom-wrap>ul>li.me{
+	position: relative;
+}
+#menu-bottom>div.menu-bottom-wrap>ul>li.me:hover:after{
+	display: block;
+}
+#menu-bottom>div.menu-bottom-wrap>ul>li.me:after{
+	display: none;
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left:0;
+	width: 100%;
+	border-top: 4px solid #ffa500;
+	z-index: 10;	
+}
+/*/////메뉴 버튼에 아래 선 호버시키기/////*/
+
+
+
+
+
+
+
+#menu-bottom>div.menu-bottom-wrap>ul>li a{
+	display: inline-block;
+	padding: 0 30px;
+	height: 54px;
+}
+#menu-bottom>div.menu-bottom-wrap>ul>li:first-child{
+	padding: 0;
+	width:50px;
+	border-left: 1px solid #e1e1e1;
+	border-right: 1px solid #e1e1e1;
+}
+
+#menu-bottom>div>ul>li>a{
+	line-height: 54px;
+}
+
+#menu-bottom>div>ul>li>a:hover{
+	color:orange;
+	font-weight: 800;
+}
+
+#menu-bottom>div.menu-hover-bottom>li{
+	border-bottom: 3px solid orange;
+}
+
+
+
+
+/*메뉴 버튼 누르면 하단 상세 메뉴 나오게*/
+.menu-bottom-detail{
+	position: absolute;
+    width: 100%;
+    top: 54px;
+    background-color: rgba(255,255,255,1);
+	z-index: 1;
+	text-align: center;
+	/*border-bottom: 3px solid #000;*/
+}
+
+
+.menu-bottom-detail>div>ul>li{
+   left:200px;
+}
+
+
+.menu-bottom-detail>div>ul>li>ul>a{
+	padding: 50px 50px 50px 110px;
+	border-bottom: 5px solid #000;
+    border-top: 4px solid #000;
+}
+}
+
+
+.menu-bottom-detail>div>ul>li>ul>li{
+	padding: 30px;
+	font-size:16px;
+	font-weight: 600;
+}
+
+
+.menu-bottom-detail>div>ul>li>ul>a>img{
+	width: 160px;
+	height: 160px;
+	margin-bottom: 10px;
+}
+
+.menu-bottom-detail>div>ul>li>ul>a:hover{
+	color:orange;
+}
+
+
+
+.menu-bottom-detail>div>ul>li>ul>a>img:hover{
+	border: 5px solid orange;
+}
+
+
+.menu-bottom-detail>div>#menu-bottom-morning-detail>li>ul>a,
+.menu-bottom-detail>div>#menu-bottom-sugar-detail>li>ul>a,
+.menu-bottom-detail>div>#menu-bottom-diet-detail>li>ul>a{
+	padding: 50px 130px 50px 140px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* /////////////// */
+/* drop-menu */
+/* /////////////// */
+#menu-bottom{
+	position: relative;
+}
+#menu-bottom>.drop-menu{
+	position: absolute;
+	width:100%;
+	top:54px;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 100;
+}
+
+#drop-menu{
+	padding: 40px 0; 
+	border-bottom: 4px solid #000;
+}
+#drop-menu>li{
+	flex: 1; /* /flex item 비율을 1:1:1~~로 */
+	border-left: 1px solid #e1e1e1;
+	font-size: 12px;
+	color: #555; 
+}
+#drop-menu>li:first-child {
+	border:0;
+}
+#drop-menu>li>p.tit{
+	text-align: center;
+}
+#drop-menu>li>p.tit a{
+	color: #555;
+	font-weight: 800;
+	letter-spacing: -1px;
+	font-size: 14px;
+}
+#drop-menu>li>ul{
+	margin-top: 30px;
+}
+#drop-menu>li>ul>li{
+	margin: 16px 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+#drop-menu>li>ul>li:hover{
+	color: orange;
+}
+
+#drop-menu>li>ul:last-child>li>a{
+	color:#555;
+}
+
+#drop-menu>li>ul>li>a:hover{
+	color: orange;
+}
+
+
+
+

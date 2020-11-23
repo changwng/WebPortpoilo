@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+@import url("reset.css");
+@import url("header.css");
+@import url("footer.css");
+
+
+/* 화면사이즈 css */
+.view-width{
+	width: 1300px;
+	margin: 0 auto; 	
+}
+
+/* 가로정렬 css */
+.row-align{
+	display: flex;
+}
+
+
+/*가로정렬(오른쪽부터) css*/
+.row-end-align{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.row-start-align{
+	display: flex;
+	justify-content: flex-start;
+}
+
+
+
+
+
+/* 가운데정렬 css */
+.flex-center{
+	display: flex;
+	justify-content: center;
+}
+
+
+/* 세로정렬 css */
+.column-align{
+	display: flex;
+	flex-direction: column;
+}
+
+/* 세로가운데정렬 css */
+.column-center-align{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+/* 양쪽 나누어서 가로정렬  */
+.space-between{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.btn-style{
+	background-color: orange;
+	padding: 0.5em 2em;
+	border: none;
+	border-radius: 5%;
+	display: inline-block;
+	color: #fff;
+	font-weight: 700;
+	margin-top:20px;
+	margin-bottom:10px;
+}
+
+/*.btn-style:hover {
+	background-color: #5f0080;
+	cursor: pointer;
+}*/
+
+
+/*사이드바*/
+
+.gnb{
+	position: relative;
+	height: 30px;
+	cursor: pointer;
+}
+
+
+.gnb>.bar{
+	display: block;
+	width: 30px;
+	border-top: 2px solid #000;
+	border-radius:20px;
+	position: absolute;
+	left:9px;
+}
+
+
+.gnb>.bar.b1{
+	top:5px;
+}
+
+.gnb>.bar.b2{
+	top:15px;
+	width:21px;
+}
+
+.gnb>.bar.b3{
+	top:25px; 
+}
+
+
+
+
+
+
+
+
+

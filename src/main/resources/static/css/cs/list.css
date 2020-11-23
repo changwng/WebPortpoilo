@@ -1,0 +1,191 @@
+@charset "UTF-8";
+@import url("../common.css");
+
+/* /////////////////////////////////////////// */
+/* //////board/list.css/////////////////////////// */
+/* /////////////////////////////////////////// */
+#cs-top img{
+	width: 100%;
+    min-width: 1300px;
+}
+
+
+
+
+#cs-top div.page-nav>ul{
+	border-bottom: 1px solid #d7d7d7;
+	width: 1300px;
+    margin: 27px auto 27px;
+    padding-bottom: 15px;  
+}
+
+
+#cs-top div.page-nav>ul>li>a{
+	padding-right: 8px;
+	color:#888888;
+}
+
+
+#cs-middle p{
+	font-size: 45px;
+	font-weight: 700;
+	padding: 40px 0;
+	text-align: center;
+}
+
+#cs-middle div ul{
+	padding: 20px 0;
+	justify-content: center;
+	margin-bottom: 50px;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+
+#cs-middle div ul li{
+	display: inline-block;
+	margin: 0 30px;
+}
+
+
+#cs-middle div ul li a{
+	color: #6b6b6b;
+}
+
+
+
+
+
+
+
+#board{
+	margin-bottom: 40px;
+}
+
+#board ul{
+	border-bottom: 1px solid #eaecef;
+	padding: 20px 0;
+	font-size: 17px;
+}
+#board ul.tit{
+	border-top: 2px solid #eaecef;
+	padding: 20px 0;
+	font-weight: 700;
+	background: #eeeeee;
+}
+#board ul li:nth-child(1){
+	flex: 1;
+	text-align: center;
+}
+#board ul li:nth-child(2){
+	flex: 6;
+	text-align: center;
+}
+#board ul li:nth-child(3){
+	flex: 2;
+	text-align: center;
+}
+#board ul li:nth-child(4){
+	flex: 1;
+	text-align: center;
+}
+
+
+#board .wrap div.write{
+	float:right;
+}
+
+
+#board .wrap div a{
+	color: #fff;
+	
+}
+
+
+#board div.search form>select,
+#board form div.search select{
+	margin-top: 20px;
+	margin-right: 10px;
+	height: 34px;
+	width: 100px;
+	border-color: #c3c0c0;
+	color:#787878;
+	
+}
+
+#board div.search form>#input_blank,
+#board form div.search .blankSearch{
+	border-color: #c3c0c0;
+	color:#787878;
+	margin-top: 20px;
+	margin-right: 10px;
+	height: 34px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.pagging{
+	display: flex;
+	justify-content: center;
+}
+
+.pagging a{
+	display:inline-block;
+	width: 40px;
+	height:40px;
+	background-color: #eaeaea;
+	text-align: center;
+	line-height: 40px;
+	margin: 40px 6px;
+}
+
+
+
+.pagging a:hover{
+	background-color: #fff;
+	border:1px solid #000;
+	color: #000;	
+}
+
+
+.pagging a.select{
+	background-color: #000;
+	//border:1px solid #000;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.up img{
+    width: 50px;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    opacity: 30%;
+}
+
+
+
+
+
+
+

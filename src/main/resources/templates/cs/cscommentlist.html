@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/cs/cscommentlist.css">
+</head>
+	
+	
+	<!-- /////////////////////// /게시판 댓글기능구현 ajax  ///////////////////////-->
+	<!-- /댓글삭제_수정 ajax -->
+	<script type="text/javascript">
+		$(function(){
+
+			$(".comment-edit").dblclick(editComment);//클릭 이벤트_더블클릭(댓글수정)
+			
+			$(".comment-edit").blur(function(){ //댓글수정
+				$(this).addClass("reset-textarea");
+				$(this).attr("readonly","true"); // true값은 readly = "readly"
+			});
+			
+			$(".btn-delete-comment").click(deleteComment);//클릭 이벤트(댓글삭제)
+		});
+	
+			//댓글 수정
+		function editComment(){
+			
+			$(this).removeAttr("readonly").removeClass("reset-textarea");
+			
+			
+			//수정처리
+			$(".comment-edit").keydown(function(event){
+				var key = event.charCode || event.keyCode;
+				
+				if(key==13){  //엔터키가 눌러지면 
+					
+					var rno = $(this).siblings(".rno").val(); //댓글 번호
+					var content = $(this).val(); //댓글 내용
+					
+					
+						$.ajax({
+						url:"/comment/comment_update/"+rno,
+						type: "post",
+						data:{"r_no":rno,"content":content},
+						success:function(result){ //후처리작업
+							 getCommentList(); //댓글목록으로 나오기
+						}
+						
+					});
+				}
+				
+			}) 
+		
+		}
+		
+		
+		//댓글 삭제
+		function deleteComment(){
+			
+			var rno = $(this).siblings(".rno").val(); //siblings 연관 ★
+						 <!-- siblings 연관지어_형제,자매과 같은 의미로 쓰임-->
+			//alert(rno); 댓글 번호_특정번호 삭제
+			
+			
+			$.ajax({
+				url:"/comment/comment_delete/" + rno, 
+				type: "get", //default값은 get
+				success: function(result){
+					 alert("댓글이 삭제되었습니다.");
+					 getCommentList(); //댓글목록으로 나오기
+					}
+				});
+
+			}
+
+	</script>
+	<!-- /////////////////////// 게시판 댓글기능구현/  ///////////////////////-->
+	
+	
+	
+	
+	
+	
+	<body>
+		<ul th:each="list:${CsCommentlist}" class="commentlist">
+			<li>[[${list.writer}]]</li>  <!-- class="list-item=1" 처럼 표현해도됨 -->
+			<li>[[${list.reg_date}]]</li>
+			<li>
+				<!-- 수정하기  -->
+				<textarea rows="2" cols="125" class="comment-edit reset-textarea" readonly="readonly">[[${list.content}]]
+				</textarea>
+				
+					<button class="btn-delete-comment" style="cursor: pointer;">삭제</button>
+					<input type="hidden" th:value="${list.r_no}" class="rno">
+	
+			</li>
+		</ul>	
+	</body>
+	
+	
+	
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/cs/write.css">
+</head>
+
+<body>
+
+	<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+		
+	<main>
+		<h1>Mybatis로 처리한 공지사항글쓰기</h1>
+		<div class="view-width">
+		
+			<section id="cs-top">
+				<img alt="고객센터이미지" src="/images/category_main_customer.jpg">
+				<div class="page-nav">
+						<ul>
+							<li><a href="/">Home &gt;</a>고객센터 &gt; FAQ</li>
+						</ul>
+				</div>
+			</section>
+			
+			<section id="board">
+				<h1>게시글 내용</h1>
+				<div class="wrap">
+					<form class="write-form" action="/cs/csfaqwrite" method="post">
+						<input name="writer" type="hidden" value="Intake">
+						<input name="subject" placeholder="제목을 입력하세요" required="required">
+						<textarea rows="10" cols="130" name="content" placeholder="내용입력하세요"></textarea>
+						<button type="submit">등록</button>
+					</form>
+				</div>
+			</section>
+		</div>
+	</main>
+	<th:block th:insert="/commons/footer::footer"></th:block>
+</body>
+</html>

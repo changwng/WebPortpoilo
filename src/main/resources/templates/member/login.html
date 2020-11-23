@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/member/login.css">
+</head>
+
+	<body>
+		<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+		
+	<main>
+		<h1>메인영역</h1>
+		<div class="view-width">
+			<section id="login">
+				<h1>로그인 form</h1>
+				
+				<div class="page-nav">
+					<ul>
+						<li><a href="/">Home &gt;</a>로그인</li>
+					</ul>
+				</div>
+				
+				
+				<div class="form-head column-center-align">
+					<p class="login-tit"><img alt="인테이크 로그인" src="/images/logo.png"></p>
+							
+				<form action="/member/login" method="post" class="login-form">
+			
+					<ul>
+						<li>
+							<input id="email" type="text" name="email" placeholder="회원ID(이메일)">	
+						</li>
+						
+						<li>
+							<input id="pw" type="password" name="pw" placeholder="비밀번호">	
+						</li>
+						
+						<th:block th:if="${email == null}">
+							<span style="color: red;">[[${msg}]]</span>
+						</th:block>
+					
+						<li>
+							<button type="submit" style="background-color: white;"><img alt="로그인_로고" src="/images/login_btn.png" class="loginlogo"></button><br>
+							
+							<div class="account">
+								<h1>계정정보</h1>
+								<a href="#">아이디찾기</a>|<a href="#">비밀번호 찾기</a>|<a href="/member/join">회원가입</a>
+							</div>
+							
+							
+							<a href="https://accounts.kakao.com"><img alt="카카오로그인" src="/images/kakao_login.png" id="kakao"></a><br>
+							
+							<!-- 스프링 시큐리티에서 기본적으로 제공하는 로그인 url -->
+							<a href="/oauth2/authorization/google" id="google">
+							<img alt="구글로그인" src="/images/google_login.png"></a><br>
+							
+							
+							<a href="/oauth2/authorization/naver" id="naver">
+							<img alt="네이버로그인" src="/images/naver_login.png"></a>
+							
+						</li>
+					
+						
+					
+					
+					</ul>
+			
+				</form>
+			</div>	
+
+			</section>
+		</div>
+	</main>	
+		
+		
+		
+		
+		
+	<!-- footer을 포함시키는 영역 -->
+	<div th:insert="~{commons/footer :: footer}">
+	</div>
+			
+		
+		
+		
+	</body>
+</html>

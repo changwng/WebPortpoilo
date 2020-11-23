@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>INTAKE 포트폴리오_정세은</title>
+</head>
+<body>
+	<header th:fragment="header">
+      	<h1>상단영역</h1>
+      	<div>
+      		<section id="user-menu">
+      			<h1>유저메뉴</h1>
+      			
+   				<ul class="row-end-align view-width" >
+   				
+   					<li>
+	   					<th:block th:if="${session.logInfo==null}">
+	   						<a href="/member/login" class="hover">LOGIN</a>
+	   					</th:block>
+	   					
+	   					<th:block th:if="${session.logInfo != null}">
+	   						<a style="padding-right: 20px; color: orange;">[[${session.logInfo.email}]]님</a>
+	   						<a href="/member/logout" class="hover">LOGOUT</a>
+						</th:block>
+   					</li>
+   					
+					<li><a href="/member/join" class="hover">JOIN</a></li>
+					<li><a href="#" class="hover">CART</a></li>
+					<li><a href="/cs/cscenter/1" class="hover">CUSTIMER CENTER</a></li>
+   				</ul>
+      		</section>
+      		<nav id="menu">
+      			<h1>메인메뉴</h1>
+      			<div>
+      				<section id="menu-top">
+      					<h1>메뉴상단</h1>
+      					<div class="view-width space-between">
+      						<ul class="left row-align">
+      							<li><a href="#">About INTAKE</a></li> 
+      							<li><a href="#">Magazine</a></li> 
+      							<li><a href="#">Lab</a></li> 
+      							<li><a href="/best/bestlist">Best</a></li>
+      						</ul>
+      						<div class="logo">
+      							<a href="/" title="홈으로 가기">
+      								<img alt="logo이미지" src="/images/logo.png">
+      							</a>
+      						</div>
+      						<div class="search column-center-align">
+      							<form>
+      								<input type="text" placeholder="검색어를 입력하세요">
+      								<button>SEARCH</button>
+      							</form>
+      						</div>
+      					</div>
+      				</section>
+      				<section id="menu-bottom">
+      					<h1>메뉴하단</h1>
+      					<div class="menu-bottom-wrap view-width">
+	   						<ul class="space-between">
+	   							<li id="gnb" class="column-center-align">
+		   							<div class="gnb">
+			   							<span class="bar b1"></span>
+			   							<span class="bar b2"></span>
+			   							<span class="bar b3"></span>
+		   							</div>
+	   							</li>
+	   							
+	   							<li class="me meals"><a href="#">밀스</a></li>
+	   							<li class="me morning"><a href="#">아침간편식</a></li>
+	   							<li class="me hankki"><a href="#">한끼</a></li>
+	   							<li class="me sugar"><a href="#">슈가로로</a></li>
+	   							<li class="me snack"><a href="#">간식/음료</a></li>
+	   							<li class="me diet"><a href="#">다이어트/건강</a></li>
+	   							<li class="me"><a href="#">이벤트</a></li>
+	   							<li class="me"><a href="/cs/cscenter/1">고객센터</a></li>
+	   						</ul>
+   						</div>
+   						<!-- after가 생성이되는 위치 -->
+   						
+   
+   						<div class="drop-menu">
+   							<div class="view-width">
+	   							<ul id="drop-menu" class="view-width row-align">
+	   								<li>
+	   									<p class="tit"><a href="#">밀스</a></p>
+	   									<ul>
+	   										<li>밀스 오리지널(400kcal)</li>
+	   										<li>밀스 라이트(190kcal)</li>
+	   										<li>밀스 바이트(170kcal)</li>
+	   										<li>밀스 방탄(ketogenic)</li>
+	   									</ul>
+									</li>
+		   							<li>
+		   								<p class="tit"><a href="#">아침간편식</a></p>
+		   								<ul>
+	   										<li>모닝죽</li>
+	   										<li>모닝스프</li>
+	   										<li>모닝 쉐이크</li>
+	   									</ul>
+									</li>
+		   							<li>
+		   								<p class="tit"><a href="#">한끼</a></p>
+		   								<ul>
+	   										<li>커리맛집</li>
+	   										<li>이노센트(식물성 고기)</li>
+	   										<li>조미료</li>
+	   										<li>보리굴비</li>
+	   									</ul>
+		   							</li>
+		   							<li>
+		   								<p class="tit"><a href="#">슈가로로</a></p>
+		   								<ul>
+	   										<li>곤약젤리(5kcal)</li>
+	   										<li>스파클링(5kcal)</li>
+	   										<li>과일청(5kcal)</li>
+	   									</ul>
+		   							</li>
+		   							<li>
+		   								<p class="tit"><a href="">간식/음료</a></p>
+		   								<ul>
+	   										<li>닥터넛츠</li>
+	   										<li>시리얼바</li>
+	   										<li>음료</li>
+	   										<li>브리드엑시트</li>
+	   									</ul>
+		   							</li>
+		   							<li>
+		   								<p class="tit"><a href="#">다이어트/건강</a></p>
+		   								<ul>
+	   										<li>CHC/다이어트 보조제</li>
+	   										<li>다이어트 스낵</li>
+	   										<li>건강기능식품</li>
+	   									</ul>
+		   							</li>
+		   							<li>
+		   								<p class="tit"><a href="#">이벤트</a></p>
+		   								<ul>
+	   										<li>이벤트</li>
+	   									</ul>
+	   								</li>
+		   							<li>
+		   								<p class="tit"><a href="/cs/cscenter/1">고객센터</a></p>
+		   								<ul>
+	   										<li><a href="/cs/cscenter/1">공지사항</a></li>
+	   										<li><a href="/cs/csfaq">FAQ</a></li> <!-- mybatis -->
+	   										<li><a href="/cs/csinquire">1:1문의</a></li>
+	   										<li><a href="/cs/cssuggest">제품 제안하기</a></li>
+	   									</ul>
+		   							</li>
+	   							</ul>
+   							</div>
+   						</div>
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역(밀스) ///////////////////// -->
+   						<script type="text/javascript">
+   						$(function(){
+   							
+   							$("#menu-bottom-detail").hide();
+   						
+		   					 $(".meals").mouseenter(function(){
+		   						$("#menu-bottom-detail").slideDown("slow");
+		   					  });
+		   					 
+		   					  $(".meals-detail").mouseleave(function(){
+		   						$("#menu-bottom-detail").slideUp("slow");
+		   					  });
+		   						
+   						});
+   						</script>
+   						
+   						
+   						<div class="menu-bottom-detail">
+   							<div class="view-width">
+	   							<ul id="menu-bottom-detail">
+	   								<li>
+	   									<ul class="meals-detail row-align">
+
+		   									<a href="#">
+		   										<img alt="밀스_밀스오리지널" src="/images/top_meal/meal1.jpg">
+		   										<li>밀스 오리지널(400kcal)</li>
+		   									</a>
+				   							
+	   										<a href="#">
+	   											<img alt="밀스_라이트" src="/images/top_meal/meal2.jpg">
+	   											<li>밀스 라이트(190kcal)</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="밀스_바이트" src="/images/top_meal/meal3.jpg">
+	   											<li>밀스 바이트(170kcal)</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="밀스_방탄" src="/images/top_meal/meal4.jpg">
+	   											<li>밀스 방탄(ketogenic)</li>
+	   										</a>									
+	   									</ul>
+	   								</li>
+	   							</ul>
+   							</div>
+
+   						</div>
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역 ///////////////////// -->
+   						
+   						
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역(모닝) /////////////////////-->
+   						<script type="text/javascript">
+   						$(function(){
+   							
+   							$("#menu-bottom-morning-detail").hide();
+   						
+		   					 $(".morning").mouseenter(function(){
+		   						$("#menu-bottom-morning-detail").slideDown("slow");
+		   					  });
+		   					 
+		   					  $(".morning-detail").mouseleave(function(){
+		   						$("#menu-bottom-morning-detail").slideUp("slow");
+		   					  });
+		   						
+   						});
+   						</script>
+   						
+   						
+   						<div class="menu-bottom-detail">
+   							<div class="view-width">
+	   							<ul id="menu-bottom-morning-detail">
+	   								<li>
+	   									<ul class="morning-detail row-align">
+
+		   									<a href="#">
+		   										<img alt="모닝_모닝죽" src="/images/top_morning/morning1.jpg">
+		   										<li>모닝죽</li>
+		   									</a>
+				   							
+	   										<a href="#">
+	   											<img alt="모닝_모닝수프" src="/images/top_morning/morning2.jpg">
+	   											<li>모닝수프</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="모닝_모닝쉐이크" src="/images/top_morning/morning3.jpg">
+	   											<li>모닝쉐이크</li>
+	   										</a>
+	   															
+	   									</ul>
+	   								</li>
+	   							</ul>
+   							</div>
+
+   						</div>
+   						
+   						<!-- ///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역 ///////////////////// -->
+   						
+   						
+   						
+   						
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역(한끼) /////////////////////-->
+   						<script type="text/javascript">
+   						$(function(){
+   							
+   							$("#menu-bottom-hankki-detail").hide();
+   						
+		   					 $(".hankki").mouseenter(function(){
+		   						$("#menu-bottom-hankki-detail").slideDown("slow");
+		   					  });
+		   					 
+		   					  $(".hankki-detail").mouseleave(function(){
+		   						$("#menu-bottom-hankki-detail").slideUp("slow");
+		   					  });
+		   						
+   						});
+   						</script>
+   						
+   						
+   						<div class="menu-bottom-detail">
+   							<div class="view-width">
+	   							<ul id="menu-bottom-hankki-detail">
+	   								<li>
+	   									<ul class="hankki-detail row-align">
+
+		   									<a href="#">
+		   										<img alt="한끼_커리맛집" src="/images/top_hankki/hankki1.jpg">
+		   										<li>커리맛집</li>
+		   									</a>
+				   							
+	   										<a href="#">
+	   											<img alt="한끼_이노센트(식물성 고기)" src="/images/top_hankki/hankki2.jpg">
+	   											<li>이노센트(식물성 고기)</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="한끼_조미료" src="/images/top_hankki/hankki3.jpg">
+	   											<li>조미료</li>
+	   										</a>
+	   											
+	   										<a href="#">
+	   											<img alt="한끼_보리굴비" src="/images/top_hankki/hankki4.jpg">
+	   											<li>보리굴비</li>
+	   										</a>	
+	   															
+	   									</ul>
+	   								</li>
+	   							</ul>
+   							</div>
+
+   						</div>
+   						
+   						<!-- ///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역 ///////////////////// -->
+   						
+   						
+   						
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역(슈가로로) /////////////////////-->
+   						<script type="text/javascript">
+   						$(function(){
+   							
+   							$("#menu-bottom-sugar-detail").hide();
+   						
+		   					 $(".sugar").mouseenter(function(){
+		   						$("#menu-bottom-sugar-detail").slideDown("slow");
+		   					  });
+		   					 
+		   					  $(".sugar-detail").mouseleave(function(){
+		   						$("#menu-bottom-sugar-detail").slideUp("slow");
+		   					  });
+		   						
+   						});
+   						</script>
+   						
+   						
+   						<div class="menu-bottom-detail">
+   							<div class="view-width">
+	   							<ul id="menu-bottom-sugar-detail">
+	   								<li>
+	   									<ul class="sugar-detail row-align">
+
+		   									<a href="#">
+		   										<img alt="슈가로로_곤약젤리" src="/images/top_sugar/sugar1.jpg">
+		   										<li>곤약젤리(5kcal)</li>
+		   									</a>
+				   							
+	   										<a href="#">
+	   											<img alt="슈가로로_스파클링" src="/images/top_sugar/sugar2.jpg">
+	   											<li>스파클링(5kcal)</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="슈가로로_과일" src="/images/top_sugar/sugar3.jpg">
+	   											<li>과일청(5kcal)</li>
+	   										</a>
+	   									</ul>
+	   								</li>
+	   							</ul>
+   							</div>
+
+   						</div>
+   						
+   						<!-- ///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역 ///////////////////// -->
+   						
+   						
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역(간식) /////////////////////-->
+   						<script type="text/javascript">
+   						$(function(){
+   							
+   							$("#menu-bottom-snack-detail").hide();
+   						
+		   					 $(".snack").mouseenter(function(){
+		   						$("#menu-bottom-snack-detail").slideDown("slow");
+		   					  });
+		   					 
+		   					  $(".snack-detail").mouseleave(function(){
+		   						$("#menu-bottom-snack-detail").slideUp("slow");
+		   					  });
+		   						
+   						});
+   						</script>
+   						
+   						
+   						<div class="menu-bottom-detail">
+   							<div class="view-width">
+	   							<ul id="menu-bottom-snack-detail">
+	   								<li>
+	   									<ul class="snack-detail row-align">
+
+		   									<a href="#">
+		   										<img alt="간식_닥터넛츠" src="/images/top_snack/snack1.jpg">
+		   										<li>닥터넛츠</li>
+		   									</a>
+				   							
+	   										<a href="#">
+	   											<img alt="간식_시리얼바" src="/images/top_snack/snack2.jpg">
+	   											<li>시리얼바</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="간식_음료" src="/images/top_snack/snack3.jpg">
+	   											<li>음료</li>
+	   										</a>
+	   											
+	   										<a href="#">
+	   											<img alt="간식_브리드엑시트" src="/images/top_snack/snack4.jpg">
+	   											<li>브리드엑시트</li>
+	   										</a>				
+	   									</ul>
+	   								</li>
+	   							</ul>
+   							</div>
+
+   						</div>
+   						
+   						<!-- ///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역 ///////////////////// -->
+   						
+   						
+   						
+   						
+   						<!--///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역(다이어트) /////////////////////-->
+   						<script type="text/javascript">
+   						$(function(){
+   							
+   							$("#menu-bottom-diet-detail").hide();
+   						
+		   					 $(".diet").mouseenter(function(){
+		   						$("#menu-bottom-diet-detail").slideDown("slow");
+		   					  });
+		   					 
+		   					  $(".diet-detail").mouseleave(function(){
+		   						$("#menu-bottom-diet-detail").slideUp("slow");
+		   					  });
+		   						
+   						});
+   						</script>
+   						
+   						
+   						<div class="menu-bottom-detail">
+   							<div class="view-width">
+	   							<ul id="menu-bottom-diet-detail">
+	   								<li>
+	   									<ul class="diet-detail row-align">
+
+		   									<a href="#">
+		   										<img alt="다이어트_CHC/다이어트 보조제" src="/images/top_diet/diet1.png">
+		   										<li>CHC/다이어트 보조제</li>
+		   									</a>
+				   							
+	   										<a href="#">
+	   											<img alt="다이어트_다이어트 스낵" src="/images/top_diet/diet2.jpg">
+	   											<li>다이어트 스낵</li>
+	   										</a>
+	   										
+	   										<a href="#">
+	   											<img alt="다이어트_건강기능식품" src="/images/top_diet/diet3.jpg">
+	   											<li>건강기능식품</li>
+	   										</a>
+	   															
+	   									</ul>
+	   								</li>
+	   							</ul>
+   							</div>
+
+   						</div>
+   						
+   						<!-- ///////////////////// 메뉴 누르면 상세 메뉴 나오는 영역 ///////////////////// -->
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+   						
+      				</section>
+      				
+      			</div>
+      		</nav>
+      	</div>
+    </header>
+</body>
+</html>

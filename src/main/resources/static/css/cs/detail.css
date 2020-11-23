@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@import url("../common.css");
+
+/* /////////////////////////////////////////// */
+/* //////board/write.css/////////////////////////// */
+/* /////////////////////////////////////////// */
+#cs-top img{
+	width: 100%;
+    min-width: 1300px;
+}
+
+
+
+
+#cs-top div.page-nav>ul{
+	border-bottom: 1px solid #d7d7d7;
+	width: 1300px;
+    margin: 27px auto 27px;
+    padding-bottom: 15px;  
+}
+
+
+#cs-top div.page-nav>ul>li>a{
+	padding-right: 8px;
+	color:#888888;
+}
+
+#board{
+	margin-bottom: 20px;
+}
+#board .wrap .board-detail .subject{
+	font-size: 26px;
+	font-weight: 700;
+}
+#board .wrap .board-detail .info{
+	font-size: 14px;
+	border-bottom: 1px solid #eaecef;
+	padding-bottom: 30px;
+	padding-top:10px;
+	color: #8c919a;
+}
+#board .wrap .board-detail .info .pipe::after {
+	border-color: #eaecef;
+	padding: 0 0.5em;
+	height: 10px;
+}
+#board .wrap .board-detail .info .writer{
+	color: #494949;
+	
+}
+
+#board .wrap .board-detail span{
+	padding-right: 5px;	
+}
+
+
+#board .wrap .board-detail .content{
+	min-height: 250px;
+	padding: 35px 0;
+}
+
+
+#board .wrap .flex-between{
+	display: flex;
+    justify-content: flex-end;
+}
+
+#board div.flex-between>a{
+	margin-right: 5px;
+}
+
+
+#board .wrap input{
+	width: 360px;
+}
+
+#board .wrap textarea{
+	width: 100%;
+}
+
+#board .wrap input, #board .wrap textarea{
+	margin-bottom: 20px;
+	padding: 5px;
+}
+
+
+#board div.flex-between>button.btn-style{
+	margin-right:5px;
+}
+
+
+
+
+
+
+#comment .comment,
+#comment .comment .flex-center {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+
+#comment input{
+	display: block;
+    margin: 0 20px 15px 0px;
+    height: 25px;
+}
+
+#comment .comment textarea{
+	padding:5px;
+}
+
+
+#comment #btn-comment{
+	margin-left:25px;
+    width: 90px;
+    height: 70px;
+    background-color: orange;
+    color: #fff;
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+#comment .comment div.flex-center{
+	padding: 30px;
+	border: 1px solid #bababa;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+#comment .comment div.flex-center a{
+	text-decoration:underline;
+	color:orange;
+	font-size: 16px;
+}
+
+
+
+
+
+
+

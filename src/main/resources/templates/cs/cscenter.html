@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>INTAKE 포트폴리오_정세은</title>
+	<script src="/js/jquery-3.5.1.min.js"></script>
+	<script src="/js/myscript.js"></script>
+	<script src="/js/gnb-drop.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/cs/list.css">
+</head>
+
+<body>
+
+		<!-- header을 포함시키는 영역 -->
+		<div th:insert="~{commons/header :: header}">
+		</div>
+
+	<main>
+		<h1>jpa로 처리한 공지사항</h1>
+		<div>
+		<section id="cs-top">
+			<h1>CScenter이미지</h1>
+			<img alt="고객센터이미지" src="/images/category_main_customer.jpg">
+		
+			<div class="page-nav">
+					<ul>
+						<li><a href="/">Home &gt;</a><a href="/cs/cscenter/1">고객센터 &gt;</a> 공지사항</li>
+					</ul>
+			</div>
+		</section>
+			
+			<script type="text/javascript">
+				$(function(){
+						$(".cscenter").css("color","orange");
+						
+						$(".faq").click(function(){
+							$(".faq").css("color","orange");
+						});
+						
+						$(".inquire").click(function(){
+							$(".inquire").css("color","orange");
+						});
+						
+						$(".suggest").click(function(){
+							$(".suggest").css("color","orange");
+						});
+	
+				});
+			
+			</script>
+			
+			
+			
+			
+		<div class="view-width">
+				<section id="cs-middle">
+					<h1>공지사항표시_jpa</h1>
+					<p>공지사항</p> <!-- jpa  -->
+					<div>
+						<ul class="row-align">
+							<li><a href="/cs/cscenter/1" class="cscenter">공지사항</a></li>
+							<li><a href="/cs/csfaq" class="faq">FAQ</a></li>
+							<li><a href="/cs/csinquire" class="inquire">1:1문의</a></li>
+							<li><a href="/cs/cssuggest" class="suggest">제품 제안 하기</a></li>
+						</ul>
+					</div>
+				</section>
+				
+				
+				<section id="board">
+					<h1>공지사항 게시글 내용</h1>
+					<div class="wrap">
+						<ul class="tit row-align">
+							<li>no</li>
+							<li>제목</li>
+							<li>날짜</li>
+							<li>조회수</li>
+						</ul>
+						
+						<ul class="contents row-align" th:each="dto:${cslist}">
+							<li th:text="${dto.no}"></li>
+										<!-- ex: /cs/16?page=2 -->
+							<li><a th:href="@{|/cs/${dto.no}|(page=${page})}">[[${dto.subject}]]</a></li>
+							<li>[[${dto.reg_date}]]</li>
+							<li>[[${dto.count}]]</li>
+						</ul>
+						
+						<div class="write">
+							<a href="/cs/cswrite" class="btn-style">글쓰기</a>
+						</div>
+					</div>
+
+
+
+					<!-- 게시글 페이징 부분 + 검색창 -->
+					<div class="pagging" id="pagging" th:if="${#lists.isEmpty(cslist)}">
+						<span id="search_no" style="margin: 50px;">검색결과가 없습니다.</span>
+					</div>
+
+					<div class="pagging" id="pagging" th:if="${!#lists.isEmpty(cslist)}">
+						<th:block th:if="${pageInfo.start>1}">
+							<a href="/cs/cscenter/1">&lt;&lt;</a>
+							<a th:href="|/cs/cscenter/${pageInfo.start-1}|">&lt;</a>
+						</th:block>
+					
+
+						<!--  ★페이징과 같이 검색창 -->
+						<span th:each="page:${#numbers.sequence(pageInfo.start, pageInfo.end)}">
+														<!-- ★ http://localhost:8080/cs/cscenter/search/1?searchType=subject&searchText=19  -->
+							<a th:if="${param.searchText != null}" th:href="@{|/cs/cscenter/search/${page}|(searchType=${param.searchType},searchText=${param.searchText})}">[[${page}]]</a>
+			
+															<!-- http://localhost:8080/cs/cscenter/1  -->
+							<a th:if="${param.searchText == null}" th:href="|/cs/cscenter/${page}|">[[${page}]]</a>
+				
+						</span>
+						
+						<th:block th:if="${pageInfo.total != pageInfo.end}">
+							<a th:href="|/cs/cscenter/${pageInfo.end+1}|">&gt;</a>
+							<a th:href="|/cs/cscenter/${pageInfo.total}|">&gt;&gt;</a>
+						</th:block>
+					</div>
+					<!-- 게시글 페이징 부분 -->
+					
+					
+					
+					<!-- 게시글 페이징 클릭 script -->
+					<script th:inline="javascript">
+						$(function(){
+							//var tag="#pagging>span:nth-child("+[[${page}]]+")>a";
+						
+								var page=[(${page})]%3;
+								
+								if(page==0)page=3;
+								//alert(page);
+								
+								<!-- 페이지블럭 4~6 _ span유형에 맞춰 nth-of-type으로 하기-->
+								var tag="#pagging>span:nth-of-type("+page+")>a"
+								$(tag).addClass("select")
+						});
+					</script>
+					<!-- 게시글 페이징 클릭 script -->
+				
+				
+				
+					<!-- 검색창 script-->
+					<script th:inline="javascript">
+					//<![CDATA[
+					$(function(){
+						var searchType = /*[[${param.searchType}]]*/ null;
+						//alert(searchType);
+						
+						if(searchType != null){
+							if(searchType == "subject"){ //제목
+								$(".op1").attr("selected","selected");
+							}else if(searchType == "content"){ //내용
+								$(".op2").attr("selected","selected");	
+							}
+						}
+					});
+					//]]>
+					</script>
+				
+				
+
+					<!-- 특정조건검색(jpa방식)-->
+					<div class="search flex-center">
+						<form action="/cs/cscenter/search/1" >
+							<select name="searchType"> 				
+								<option value="subject" class="op1" selected="selected">제목</option>
+								<option value="content" class="op2">내용</option>
+							</select>
+								<input type="text" name="searchText" id="input_blank" placeholder="검색어를 입력하세요" th:value="${param.searchText}" >
+								<input type="submit" value="검색" id="btnSearch" class="btn-style" style="margin-bottom: 0px; cursor: pointer;">
+						</form>
+					</div>
+					<!-- 특정조건검색(jpa방식)-->
+					 
+					 
+					  
+				</div>
+			</section>
+		</div>
+	</main>
+	
+	
+	<!-- up버튼 누르면 올라가기 -->
+		<script type="text/javascript">
+			$(function(){
+			    var speed = 500; // 스크롤속도
+			    $(".up").css("cursor","pointer").click(function()
+			    {
+			        $('body, html').animate({scrollTop:0}, speed);
+			    });
+			});
+			</script>
+
+
+		<div class="up">
+			<img alt="up" src="/images/chevron-circle-up-solid.svg">
+		</div>
+	<!-- up버튼 누르면 올라가기 -->
+	
+
+	<!-- footer을 포함시키는 영역 -->
+	<div th:insert="~{commons/footer :: footer}">
+	</div>
+
+</body>
+</html>
